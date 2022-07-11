@@ -1,0 +1,42 @@
+.textarea {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &Label {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    padding: 0 5px;
+    font-size: 12px;
+    transition: 0.1s ease-in;
+    pointer-events: none;
+    background-color: $bgColor;
+    color: $textColor;
+
+    &.fixLabel {
+      transform: translateY(-17px);
+    }
+  }
+
+  &Field {
+    padding: 10px 12px;
+    border-radius: 22px;
+    overflow: hidden;
+    background-color: transparent;
+    border: 1px solid;
+    width: 100%;
+    resize: none;
+    height: 100px;
+    border-color: $secondaryBgColor;
+    color: $textColor;
+
+    &:focus ~ label {
+      transform: translateY(-17px);
+    }
+
+    &:valid ~ label {
+      transform: translateY(-17px);
+    }
+  }
+}

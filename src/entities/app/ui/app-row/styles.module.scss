@@ -1,0 +1,36 @@
+.appRow {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-column-gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  height: 60px;
+
+  &Info {
+    display: flex;
+    flex-direction: column;
+
+    &Title {
+      display: flex;
+      font-size: 16px;
+      font-weight: 500;
+      color: $textColor;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      display: -webkit-box;
+    }
+
+    &Desc {
+      font-size: 12px;
+      font-weight: 400;
+      opacity: 0.6;
+      display: block;
+      overflow: hidden;
+      color: $textColor;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.wrapper {
+  margin-top: 15px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 5px;
+
+  &Title {
+    width: 150px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  &Item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-column-gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 60px;
+
+    &Info {
+      display: flex;
+      flex-direction: column;
+
+      &Title {
+        display: flex;
+        margin-bottom: 5px;
+        width: 70%;
+      }
+
+      &Desc {
+        opacity: 0.6;
+        width: 100%;
+      }
+    }
+  }
+}

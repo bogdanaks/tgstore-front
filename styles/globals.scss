@@ -1,0 +1,46 @@
+@import "./variables.scss";
+
+:root {
+  --tg-theme-bg-color: #1c1c1d;
+  --tg-theme-secondary-bg-color: #000000;
+  --tg-theme-button-color: #8c8c8c;
+  --tg-theme-button-text-color: #ffffff;
+  --tg-theme-hint-color: #98989e;
+  --tg-theme-link-color: #8c8c8c;
+  --tg-theme-text-color: #ffffff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Rubik, system-ui;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: $textColor;
+}
+
+input,
+textarea {
+  outline: none;
+  border: none;
+}
+
+body {
+  font-size: 16px;
+  color: $textColor;
+  background-color: $bgColor;
+}
