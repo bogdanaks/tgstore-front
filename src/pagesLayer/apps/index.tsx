@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import { AppList } from "entities/app/ui/app-list"
 import Skeleton from "shared/ui/skeleton"
 import { Wrapper } from "shared/ui/wrapper"
+import { WebApp } from "shared-kernel"
+import { Footer } from "widgets/footer"
 
 import styles from "./styles.module.scss"
 
@@ -46,7 +48,15 @@ const AppsPage = () => {
     <Wrapper>
       <h1 style={{ marginBottom: "20px" }}>Apps</h1>
       {isLoaded && <Skeleton.AppList />}
-      {!isLoaded && <AppList apps={apps} title="Top Rating" />}
+      {!isLoaded && (
+        <>
+          <AppList apps={apps} title="Top Rating" />
+          <AppList apps={apps} title="Most Usefull" />
+          <AppList apps={apps} title="Top Funny" />
+          <AppList apps={apps} title="Top Educational" />
+        </>
+      )}
+      <Footer />
     </Wrapper>
   )
 }
