@@ -6,7 +6,7 @@ const nextConfig = {
     domains: ["localhost"],
   },
   sassOptions: {
-    prependData: `@use "/styles/variables" as *;`, // ON PRODUCTION CHANGE ON /styles/variables!!!
+    prependData: "@use \"/styles/variables\" as *;", // ON PRODUCTION CHANGE ON /styles/variables!!!
   },
 }
 
