@@ -2,7 +2,6 @@ import React, { FC } from "react"
 import { AppStore } from "entities/app/model"
 import { getTwoCharacter } from "shared/lib/get-two-characters"
 import { AppImage } from "shared/ui/app-image"
-import { WebApp } from "shared-kernel"
 
 import styles from "./styles.module.scss"
 
