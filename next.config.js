@@ -8,6 +8,7 @@ const nextConfig = {
   sassOptions: {
     prependData: "@use \"/styles/variables\" as *;", // ON PRODUCTION CHANGE ON /styles/variables!!!
   },
+  pageExtensions: ["p.tsx"],
 }
 
 module.exports = nextConfig
