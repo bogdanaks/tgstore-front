@@ -1,7 +1,6 @@
 .item {
   border-radius: 5px;
   padding: 10px;
-  box-shadow: 0 0 10px 2px $bgColor;
   background-color: $secondaryBgColor;
   min-height: 150px;
   min-width: 90%;
@@ -12,9 +11,6 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
-
-    &Stars {
-    }
 
     &User {
       display: flex;
@@ -29,8 +25,5 @@
         }
       }
     }
-  }
-
-  &Text {
   }
 }
