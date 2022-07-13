@@ -8,6 +8,18 @@ interface RatingProps {
 }
 
 export const Rating: FC<RatingProps> = ({ appId }) => {
+  const isHasReviews = false
+
+  if (!isHasReviews) {
+    return (
+      <div className={styles.rating}>
+        <div className={styles.ratingHeader}>
+          <span className={styles.ratingHeaderTitle}>Reviews: 0</span>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className={styles.rating}>
       <div className={styles.ratingHeader}>
