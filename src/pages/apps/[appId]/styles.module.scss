@@ -1,0 +1,119 @@
+.header {
+  display: flex;
+  flex-direction: column;
+
+  &Main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin-left: 10px;
+    width: 100%;
+  }
+
+  &Image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 80px;
+    height: 80px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      object-fit: cover;
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  &Info {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: flex-start;
+    height: 100%;
+
+    &Title {
+      display: flex;
+      font-size: 18px;
+      font-weight: 500;
+      color: $textColor;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      display: -webkit-box;
+    }
+  }
+}
+
+.body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5px;
+
+  &Type {
+    font-size: 15px;
+    color: $hintColor;
+  }
+
+  &Favorite {
+    display: flex;
+    align-items: center;
+    color: $buttonTextColor;
+
+    button {
+      padding: 0;
+    }
+  }
+}
+
+.heartOutline {
+  color: $hintColor;
+}
+
+.heartContained {
+  color: $hintColor;
+}
+
+.hr {
+  width: 100%;
+  height: 1px;
+  opacity: 0.3;
+  margin: 10px 0;
+  background-color: $hintColor;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: $textColor;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 10px;
+  background-color: $buttonColor;
+  border-radius: 3px;
+  width: fit-content;
+
+  span {
+    margin-left: 10px;
+  }
+}
