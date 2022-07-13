@@ -1,5 +1,4 @@
 import { config } from "shared/config"
-import { WebApp } from "shared-kernel"
 
 export interface ResponseError {
   error: string
