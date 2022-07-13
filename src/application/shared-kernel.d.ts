@@ -106,11 +106,14 @@ interface TgWebView {
   receiveEvent: (eventType: string, func: () => void, eventData: any) => void
 }
 
-export declare global {
-  interface Window {
-    Telegram: {
-      WebApp: TgWebApp
-      WebView: TgWebView
-    }
-  }
+type TypeApp = { id: string, slug: string, title: string, created_at: Date, updated_at: Date }
+type CategoryApp = { id: string, slug: string, title: string, created_at: Date, updated_at: Date }
+
+type FavoriteWebApp = {
+  id: string
+  tg_user_id: string
+  app_id: string
+  app: WebApp
+  created_at: Date
+  updated_at: Date
 }
