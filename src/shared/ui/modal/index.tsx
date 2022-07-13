@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, useEffect, useRef } from "react"
 import ReactDOM from "react-dom"
 import { IoCloseCircleOutline } from "react-icons/io5"
 import cn from "classnames"
@@ -13,12 +13,31 @@ interface ModalProps {
 }
 
 const Modal: FC<ModalProps> = ({ children, isShowing, hide, title }) => {
+  const divRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const listener = (event: MouseEvent | TouchEvent) => {
+      if (!divRef.current || divRef.current.contains(event.target as Node))
+        return
+
+      hide()
+    }
+
+    document.addEventListener("mousedown", listener)
+    document.addEventListener("touchstart", listener)
+
+    return () => {
+      document.removeEventListener("mousedown", listener)
+      document.removeEventListener("touchstart", listener)
+    }
+  }, [])
+
   if (!isShowing) return null
 
   return ReactDOM.createPortal(
     <div className={styles.modal}>
       <div className={styles.modalWrapper} />
-      <div className={styles.modalContainer}>
+      <div className={styles.modalContainer} ref={divRef}>
         <div
           className={cn(styles.modalContainerHeader, {
             [styles.noTitle]: !title,
