@@ -19,7 +19,7 @@ export const ReviewCard: FC<ReviewCardProps> = ({
   return (
     <li className={styles.item}>
       <div className={styles.itemTop}>
-        <div className={styles.itemTopStars}>
+        <div>
           <IoStar fontSize={14} />
           <IoStar fontSize={14} />
           <IoStar fontSize={14} />
@@ -31,7 +31,7 @@ export const ReviewCard: FC<ReviewCardProps> = ({
           <span>{date.toLocaleDateString()}</span>
         </div>
       </div>
-      <div className={styles.itemText}>{reviewText}</div>
+      <div>{reviewText}</div>
     </li>
   )
 }
