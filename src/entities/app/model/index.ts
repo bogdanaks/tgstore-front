@@ -9,8 +9,10 @@ class AppClass {
   public async getAppById(appId: string) {
     return await getAppById(appId)
   }
+
+  async addViewer({ user_id, app_id }: { user_id: number, app_id: string }): Promise<void> {
+    // await addAppViewer({ user_id, app_id })
+  }
 }
 
-const AppStore = new AppClass()
-
-export { AppStore }
+export const AppStore = new AppClass()
