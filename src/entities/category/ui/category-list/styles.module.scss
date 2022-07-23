@@ -1,0 +1,9 @@
+.categoriesItem {
+  margin-bottom: 7px;
+  display: flex;
+  height: 50px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
