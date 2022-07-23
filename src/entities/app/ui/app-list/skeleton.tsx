@@ -1,12 +1,11 @@
 import React from "react"
+import { SkeletonButton } from "shared/ui/skeleton/button"
+import { SkeletonImage } from "shared/ui/skeleton/image"
+import { SkeletonParagraph } from "shared/ui/skeleton/paragraph"
 
-import { SkeletonButton } from "../button"
-import { SkeletonImage } from "../image"
-import { SkeletonParagraph } from "../paragraph"
+import styles from "./skeleton.module.scss"
 
-import styles from "./styles.module.scss"
-
-export const SkeletonAppList = () => {
+export const SkeletonAppsList = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>

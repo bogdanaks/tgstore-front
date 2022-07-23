@@ -49,8 +49,6 @@ export const AddReview = () => {
     )
   }
 
-  console.log(TgStore.data?.user.first_name)
-
   return (
     <>
       <Button className={styles.btnAdd} onClick={handleAddReviewClick}>

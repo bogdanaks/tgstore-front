@@ -1,5 +1,6 @@
-import Image from "next/image"
 import React, { FC } from "react"
+import Image from "next/image"
+import { config } from "shared/config"
 
 import styles from "./styles.module.scss"
 
@@ -24,7 +25,12 @@ export const AppImage: FC<AppImageProps> = ({
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       {imageUrl && (
-        <Image src={imageUrl} alt={alt} width={width} height={height} />
+        <Image
+          src={`${config.API_HOST}/${imageUrl}`}
+          alt={alt}
+          width={width}
+          height={height}
+        />
       )}
       {!imageUrl && (
         <div className={styles.noImage} style={{ fontSize: width / 2.5 }}>

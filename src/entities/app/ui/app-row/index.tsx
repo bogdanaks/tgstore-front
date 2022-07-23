@@ -22,7 +22,7 @@ export const AppRow: FC<AppRowProps> = ({
     <Link href={`/apps/${id}`}>
       <li className={styles.appRow}>
         <AppImage
-          imageUrl={`/images${imageUrl}`}
+          imageUrl={imageUrl}
           noImageTitle="TA"
           alt={title}
           width={50}

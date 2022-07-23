@@ -77,20 +77,19 @@
   &Favorite {
     display: flex;
     align-items: center;
+    justify-content: center;
     color: $buttonTextColor;
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     button {
       padding: 0;
     }
   }
-}
-
-.heartOutline {
-  color: $hintColor;
-}
-
-.heartContained {
-  color: $hintColor;
 }
 
 .hr {
