@@ -17,11 +17,7 @@ const CategoryPage = () => {
     ["categories"],
     fetcher<CategoryApp[]>("/app-category")
   )
-  const {
-    isLoading: isLoadingApps,
-    isSuccess: isSuccessApps,
-    data: apps,
-  } = useQuery(
+  const { data: apps } = useQuery(
     ["apps", categoryId],
     fetcherApps(`/app?categoryId=${categoryId}`),
     {
@@ -37,6 +33,8 @@ const CategoryPage = () => {
 
   if (!categoryInfo || !apps) return null
 
+  console.log(apps)
+
   return (
     <Wrapper style={{ padding: 0 }}>
       <TopBar
@@ -51,7 +49,7 @@ const CategoryPage = () => {
         }
       />
       <div style={{ padding: "20px", paddingBottom: 0, paddingTop: 10 }}>
-        {activeTab === 0 && <AppList apps={apps.data} />}
+        {activeTab === 0 && <AppList apps={apps.data.data} />}
         {activeTab === 1 && <span>2</span>}
         {activeTab === 2 && <span>3</span>}
       </div>

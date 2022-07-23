@@ -17,10 +17,12 @@ export const fetcherAppById = (url: string) => (): Promise<{ data: WebApp }> => 
 }
 
 export const fetcherApps = (url: string) => (): Promise<{
-  data: WebApp[],
-  page: number,
-  limit: number,
-  total: number,
+  data: {
+    data: WebApp[],
+    page: number,
+    limit: number,
+    total: number,
+  }
 }> => {
   return fetch(`${config.API_URL}${url}`).then((res) => res.json())
 }
