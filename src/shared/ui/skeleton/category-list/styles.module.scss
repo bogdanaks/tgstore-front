@@ -1,0 +1,16 @@
+.wrapper {
+  margin-top: 15px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  &Item {
+    margin-bottom: 7px;
+  }
+}
