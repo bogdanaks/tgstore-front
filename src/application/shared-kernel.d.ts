@@ -107,7 +107,9 @@ interface TgWebView {
 }
 
 type TypeApp = { id: string, slug: string, title: string, created_at: Date, updated_at: Date }
-type CategoryApp = { id: string, slug: string, title: string, created_at: Date, updated_at: Date }
+type CategoryApp = { id: string, slug: string, title: string, icon: string, created_at: Date, updated_at: Date }
+
+type Status = "IDLE" | "PENDING" | "ERROR" | "SUCCESS"
 
 type FavoriteWebApp = {
   id: string
