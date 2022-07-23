@@ -6,20 +6,22 @@ import styles from "./styles.module.scss"
 
 interface AppListProps {
   apps: WebApp[]
-  title: string
+  title?: string
 }
 
 export const AppList: FC<AppListProps> = ({ apps, title }) => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.header}>
-        <h2>{title}</h2>
-        <button style={{ fontSize: "15px" }}>See All</button>
-      </div>
+      {title && (
+        <div className={styles.header}>
+          <h2>{title}</h2>
+          <button style={{ fontSize: "15px" }}>See All</button>
+        </div>
+      )}
       <ul>
-        {apps.map((app) => (
+        {apps.map((app, index) => (
           <AppRow
-            key={app.id}
+            key={index}
             id={app.id}
             imageUrl={app.image_url}
             shortDescription={app.short_description}
