@@ -102,7 +102,6 @@ export const delFavorite = async (app_id: string, userId: number | undefined): P
       },
     })
   } catch (error) {
-    console.log(JSON.stringify(error))
     if (error instanceof Response) {
       const msg: ResponseError = JSON.parse(await error.text())
       const msgFormatting = Array.isArray(msg.message) ? msg.message.join(", ") : msg.message

@@ -30,8 +30,6 @@ const RecommendationsPage = () => {
 
   if (!recommendationCategory || !recommendationApps) return null
 
-  console.log(recommendationApps)
-
   return (
     <Wrapper style={{ padding: 0 }}>
       <TopBar title={recommendationCategory.data.title} isBack={true} />
