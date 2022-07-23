@@ -1,30 +1,15 @@
 import React, { FC } from "react"
-import { useQuery } from "@tanstack/react-query"
 import { Favorite } from "features/add-to-favorite/ui"
-import { fetcherAppById } from "shared/lib/fetcher"
 import { getTwoCharacter } from "shared/lib/get-two-characters"
 import { AppImage } from "shared/ui/app-image"
-import Skeleton from "shared/ui/skeleton"
-
-import { AppDetailSkeleton } from "./skeleton"
 
 import styles from "./styles.module.scss"
 
 interface AppDetailProps {
-  appId: string
+  app: WebApp
 }
 
-export const AppDetail: FC<AppDetailProps> = ({ appId }) => {
-  const { data: app } = useQuery(
-    ["apps", appId],
-    fetcherAppById(`/app/${appId}`),
-    {
-      enabled: !(appId === undefined),
-    }
-  )
-
-  if (!app) return <AppDetailSkeleton />
-
+export const AppDetail: FC<AppDetailProps> = ({ app }) => {
   return (
     <>
       <div className={styles.header}>
