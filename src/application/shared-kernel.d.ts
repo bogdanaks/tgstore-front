@@ -119,3 +119,20 @@ type FavoriteWebApp = {
   created_at: Date
   updated_at: Date
 }
+
+type RecommendationCategory = {
+  id: string
+  title: string
+  created_at: Date
+  updated_at: Date
+}
+
+type RecommendationApp = {
+  id: string
+  app_id: string
+  app: WebApp
+  category_id: string
+  category: RecommendationCategory
+  created_at: Date
+  updated_at: Date
+}
