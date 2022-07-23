@@ -1,9 +1,11 @@
 import React from "react"
 import {
+  IoGridOutline,
   IoHeartOutline,
   IoLayersOutline,
   IoSearchOutline,
 } from "react-icons/io5"
+import { RiHome2Line } from "react-icons/ri"
 import cn from "classnames"
 import Link from "next/link"
 import { useRouter } from "next/router"
@@ -18,12 +20,24 @@ export const Footer = () => {
       <ul className={styles.footerList}>
         <li
           className={cn(styles.footerListItem, {
-            [styles.isActive]: router.asPath.includes("/apps"),
+            [styles.isActive]:
+              router.asPath === "/apps" || router.asPath === "/",
           })}
         >
           <Link href="/apps">
             <a>
-              <IoLayersOutline fontSize={24} />
+              <RiHome2Line fontSize={24} />
+            </a>
+          </Link>
+        </li>
+        <li
+          className={cn(styles.footerListItem, {
+            [styles.isActive]: router.asPath.includes("/categories"),
+          })}
+        >
+          <Link href="/categories">
+            <a>
+              <IoGridOutline fontSize={24} />
             </a>
           </Link>
         </li>
@@ -35,17 +49,6 @@ export const Footer = () => {
           <Link href="/favorites">
             <a>
               <IoHeartOutline fontSize={24} />
-            </a>
-          </Link>
-        </li>
-        <li
-          className={cn(styles.footerListItem, {
-            [styles.isActive]: router.asPath.includes("/search"),
-          })}
-        >
-          <Link href="/search">
-            <a>
-              <IoSearchOutline fontSize={24} />
             </a>
           </Link>
         </li>
