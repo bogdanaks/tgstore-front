@@ -1,0 +1,15 @@
+.category {
+  background-color: $secondaryBgColor;
+  margin-bottom: 7px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
