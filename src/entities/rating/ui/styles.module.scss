@@ -1,0 +1,75 @@
+.rating {
+  display: flex;
+  flex-direction: column;
+
+  &Header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+    &Title {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    button {
+      color: $linkColor;
+    }
+  }
+
+  &Body {
+    margin-top: 5px;
+
+    &Main {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+
+      &Amount {
+        font-size: 60px;
+        font-weight: 500;
+      }
+
+      &Stars {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+
+        &Item {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: 100%;
+
+          &List {
+            width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin: 0 10px;
+          }
+
+          &Line {
+            position: relative;
+            width: 100%;
+            height: 4px;
+            border-radius: 5px;
+            background-color: $secondaryBgColor;
+
+            &Inner {
+              background-color: $hintColor;
+              width: 50%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
