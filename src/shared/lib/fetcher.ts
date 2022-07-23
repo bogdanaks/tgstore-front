@@ -12,7 +12,7 @@ export const fetcherWithUserId = <T>(url: string, user_id: number | undefined) =
   }).then((res) => res.json())
 }
 
-export const fetcherAppById = (url: string) => (): Promise<WebApp> => {
+export const fetcherAppById = (url: string) => (): Promise<{ data: WebApp }> => {
   return fetch(`${config.API_URL}${url}`).then((res) => res.json())
 }
 

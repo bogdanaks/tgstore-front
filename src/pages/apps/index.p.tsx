@@ -1,57 +1,56 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
+import { useQuery } from "@tanstack/react-query"
 import { AppList } from "entities/app/ui/app-list"
 import { SkeletonAppsList } from "entities/app/ui/app-list/skeleton"
+import { fetcher } from "shared/lib/fetcher"
 import { PageTitle } from "shared/ui/page-title"
 import { Wrapper } from "shared/ui/wrapper"
 import { Footer } from "widgets/footer"
+import { Search } from "widgets/search/ui"
 
 const AppsPage = () => {
-  const [isLoaded, setIsLoaded] = useState(true)
+  const {
+    isLoading,
+    isSuccess,
+    data: recommendationCategories,
+  } = useQuery(
+    ["recommendation_categories"],
+    fetcher<{ data: RecommendationCategory[] }>("/recommendation/categories")
+  )
+  const {
+    isLoading: isLoadingRecApps,
+    isSuccess: isSuccessRecApps,
+    data: recommendationApps,
+  } = useQuery(
+    ["recommendation_apps"],
+    fetcher<{ data: RecommendationApp[] }>("/recommendation")
+  )
 
-  const apps = [
-    {
-      id: "16",
-      image_url: "/noimage.webp",
-      title: "Audio Bot",
-      short_description: "Бот позволяет слушать музыку из VK без ограничений!",
+  const filterApps = useCallback(
+    (categoryId: string): WebApp[] => {
+      return (recommendationApps?.data
+        .map((item) => item.category_id === categoryId && item.app)
+        .filter(Boolean)
+        .splice(0, 5) || []) as WebApp[]
     },
-    {
-      id: "16",
-      image_url: "/noimage.webp",
-      title: "Random Key Generator",
-      short_description:
-        "Generate random keys/passwords on the air! Enter length and select method to create one.",
-    },
-    {
-      id: "16",
-      image_url: "/noimage.webp",
-      title: "MeteoBot",
-      short_description: "Я покажу погоду в твоём городе!",
-    },
-    {
-      id: "16",
-      image_url: "/noimage.webp",
-      title: "HomeBro Аренда 🏠",
-      short_description: "Персональный помощник по поиску жилья 🏡",
-    },
-  ] as WebApp[]
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(false)
-    }, 1000)
-  }, [])
+    [recommendationApps]
+  )
 
   return (
     <Wrapper>
       <PageTitle title="Apps" />
-      {isLoaded && <SkeletonAppsList />}
-      {!isLoaded && (
+      {isLoading && <SkeletonAppsList />}
+      {isSuccess && (
         <>
-          <AppList apps={apps} title="Top Rating" />
-          <AppList apps={apps} title="Most Usefull" />
-          <AppList apps={apps} title="Top Funny" />
-          <AppList apps={apps} title="Top Educational" />
+          <Search />
+          {recommendationCategories.data.map((categories, index) => (
+            <AppList
+              key={index}
+              apps={filterApps(categories.id)}
+              title={categories.title}
+              seeAllLink={categories.id}
+            />
+          ))}
         </>
       )}
       <Footer />

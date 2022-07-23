@@ -9,7 +9,7 @@ import { TextArea } from "shared/ui/textarea"
 import styles from "./styles.module.scss"
 
 const Modal = dynamic(() => import("shared/ui/modal"), {
-  suspense: true,
+  suspense: false,
 })
 
 export const AddReview = () => {

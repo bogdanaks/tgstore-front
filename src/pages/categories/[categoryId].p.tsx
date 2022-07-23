@@ -13,11 +13,10 @@ const CategoryPage = () => {
   const {
     query: { categoryId },
   } = useRouter()
-  const {
-    isLoading: isLoadingCat,
-    isSuccess: isSuccessCat,
-    data: categories,
-  } = useQuery(["categories"], fetcher<CategoryApp[]>("/app-category"))
+  const { data: categories } = useQuery(
+    ["categories"],
+    fetcher<CategoryApp[]>("/app-category")
+  )
   const {
     isLoading: isLoadingApps,
     isSuccess: isSuccessApps,
@@ -31,84 +30,6 @@ const CategoryPage = () => {
   )
 
   const { activeTab, onTabClick } = useTabs()
-
-  // const apps = [
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "Audio Bot",
-  //     short_description: "Бот позволяет слушать музыку из VK без ограничений!",
-  //   },
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "Random Key Generator",
-  //     short_description:
-  //       "Generate random keys/passwords on the air! Enter length and select method to create one.",
-  //   },
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "MeteoBot",
-  //     short_description: "Я покажу погоду в твоём городе!",
-  //   },
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "HomeBro Аренда 🏠",
-  //     short_description: "Персональный помощник по поиску жилья 🏡",
-  //   },
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "MeteoBot",
-  //     short_description: "Я покажу погоду в твоём городе!",
-  //   },
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "HomeBro Аренда 🏠",
-  //     short_description: "Персональный помощник по поиску жилья 🏡",
-  //   },
-  //   ,
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "HomeBro Аренда 🏠",
-  //     short_description: "Персональный помощник по поиску жилья 🏡",
-  //   },
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "MeteoBot",
-  //     short_description: "Я покажу погоду в твоём городе!",
-  //   },
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "HomeBro Аренда 🏠",
-  //     short_description: "Персональный помощник по поиску жилья 🏡",
-  //   },
-  //   ,
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "HomeBro Аренда 🏠",
-  //     short_description: "Персональный помощник по поиску жилья 🏡",
-  //   },
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "MeteoBot",
-  //     short_description: "Я покажу погоду в твоём городе!",
-  //   },
-  //   {
-  //     id: "16",
-  //     image_url: "/noimage.webp",
-  //     title: "HomeBro Аренда 🏠",
-  //     short_description: "Персональный помощник по поиску жилья 🏡",
-  //   },
-  // ] as WebApp[]
 
   const categoryInfo = useMemo(() => {
     return categories?.find((item) => item.id === categoryId)
