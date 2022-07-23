@@ -1,4 +1,4 @@
-import React, { useMemo } from "react"
+import React, { useCallback, useMemo } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { AppList } from "entities/app/ui/app-list"
 import { useRouter } from "next/router"
@@ -31,9 +31,29 @@ const CategoryPage = () => {
     return categories?.find((item) => item.id === categoryId)
   }, [categories, categoryId])
 
-  if (!categoryInfo || !apps) return null
+  const channels = useMemo(() => {
+    return apps?.data.data
+      .map(
+        (item) => item.type_id === "2" && item // 2 channel id
+      )
+      .filter(Boolean)
+  }, [apps]) as WebApp[]
 
-  console.log(apps)
+  const groups = useMemo(() => {
+    return apps?.data.data
+      .map((item) => item.type_id === "3" && item)
+      .filter(Boolean) // 3 group id
+  }, [apps]) as WebApp[]
+
+  const bots = useMemo(() => {
+    return (
+      apps?.data.data
+        .map((item) => item.type_id === "1" && item)
+        .filter(Boolean) || []
+    ) // 1 bot id
+  }, [apps]) as WebApp[]
+
+  if (!categoryInfo || !apps || !categoryId) return null
 
   return (
     <Wrapper style={{ padding: 0 }}>
@@ -49,9 +69,9 @@ const CategoryPage = () => {
         }
       />
       <div style={{ padding: "20px", paddingBottom: 0, paddingTop: 10 }}>
-        {activeTab === 0 && <AppList apps={apps.data.data} />}
-        {activeTab === 1 && <span>2</span>}
-        {activeTab === 2 && <span>3</span>}
+        {activeTab === 0 && <AppList apps={channels} />}
+        {activeTab === 1 && <AppList apps={groups} />}
+        {activeTab === 2 && <AppList apps={bots} />}
       </div>
       <Footer />
     </Wrapper>
