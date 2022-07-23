@@ -17,6 +17,17 @@
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
+.block {
+  border-radius: 5px;
+  height: 50px;
+  width: 100%;
+  cursor: default;
+  background: $hintColor;
+  border: 1px solid $hintColor;
+  outline: none;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
 .paragraph {
   border-radius: 10px;
   background: $hintColor;
