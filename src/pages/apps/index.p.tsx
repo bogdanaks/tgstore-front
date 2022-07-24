@@ -2,11 +2,15 @@ import React, { useCallback, useEffect, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { AppList } from "entities/app/ui/app-list"
 import { SkeletonAppsList } from "entities/app/ui/app-list/skeleton"
+import Link from "next/link"
 import { fetcher } from "shared/lib/fetcher"
 import { PageTitle } from "shared/ui/page-title"
+import Skeleton from "shared/ui/skeleton"
 import { Wrapper } from "shared/ui/wrapper"
 import { Footer } from "widgets/footer"
 import { Search } from "widgets/search/ui"
+
+import styles from "./styles.module.scss"
 
 const AppsPage = () => {
   const {
@@ -17,11 +21,7 @@ const AppsPage = () => {
     ["recommendation_categories"],
     fetcher<{ data: RecommendationCategory[] }>("/recommendation/categories")
   )
-  const {
-    isLoading: isLoadingRecApps,
-    isSuccess: isSuccessRecApps,
-    data: recommendationApps,
-  } = useQuery(
+  const { data: recommendationApps } = useQuery(
     ["recommendation_apps"],
     fetcher<{ data: RecommendationApp[] }>("/recommendation")
   )
@@ -39,10 +39,19 @@ const AppsPage = () => {
   return (
     <Wrapper>
       <PageTitle title="Apps" />
-      {isLoading && <SkeletonAppsList />}
+      {isLoading && (
+        <>
+          <Skeleton.Block style={{ height: 35 }} />
+          <SkeletonAppsList />
+        </>
+      )}
       {isSuccess && (
         <>
-          <Search />
+          <Link href="/search">
+            <a className={styles.searchLink}>
+              <Search />
+            </a>
+          </Link>
           {recommendationCategories.data.map((categories, index) => (
             <AppList
               key={index}
