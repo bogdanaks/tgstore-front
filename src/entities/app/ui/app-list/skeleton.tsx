@@ -1,7 +1,7 @@
 import React from "react"
-import { SkeletonButton } from "shared/ui/skeleton/button"
-import { SkeletonImage } from "shared/ui/skeleton/image"
-import { SkeletonParagraph } from "shared/ui/skeleton/paragraph"
+import Skeleton from "shared/ui/skeleton"
+
+import { SkeletonAppRow } from "../app-row/skeleton"
 
 import styles from "./skeleton.module.scss"
 
@@ -10,55 +10,15 @@ export const SkeletonAppsList = () => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.headerTitle}>
-          <SkeletonParagraph height={30} />
+          <Skeleton.Paragraph height={30} />
         </div>
-        <SkeletonButton />
+        <Skeleton.Button />
       </div>
       <ul className={styles.list}>
-        <li className={styles.listItem}>
-          <SkeletonImage height={50} width={50} />
-          <div className={styles.listItemInfo}>
-            <div className={styles.listItemInfoTitle}>
-              <SkeletonParagraph />
-            </div>
-            <div className={styles.listItemInfoDesc}>
-              <SkeletonParagraph />
-            </div>
-          </div>
-        </li>
-        <li className={styles.listItem}>
-          <SkeletonImage height={50} width={50} />
-          <div className={styles.listItemInfo}>
-            <div className={styles.listItemInfoTitle}>
-              <SkeletonParagraph />
-            </div>
-            <div className={styles.listItemInfoDesc}>
-              <SkeletonParagraph />
-            </div>
-          </div>
-        </li>
-        <li className={styles.listItem}>
-          <SkeletonImage height={50} width={50} />
-          <div className={styles.listItemInfo}>
-            <div className={styles.listItemInfoTitle}>
-              <SkeletonParagraph />
-            </div>
-            <div className={styles.listItemInfoDesc}>
-              <SkeletonParagraph />
-            </div>
-          </div>
-        </li>
-        <li className={styles.listItem}>
-          <SkeletonImage height={50} width={50} />
-          <div className={styles.listItemInfo}>
-            <div className={styles.listItemInfoTitle}>
-              <SkeletonParagraph />
-            </div>
-            <div className={styles.listItemInfoDesc}>
-              <SkeletonParagraph />
-            </div>
-          </div>
-        </li>
+        <SkeletonAppRow />
+        <SkeletonAppRow />
+        <SkeletonAppRow />
+        <SkeletonAppRow />
       </ul>
     </div>
   )
