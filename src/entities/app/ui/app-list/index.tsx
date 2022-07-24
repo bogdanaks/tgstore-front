@@ -22,7 +22,7 @@ export const AppList: FC<AppListProps> = ({ apps, title, seeAllLink }) => {
           </Link>
         </div>
       )}
-      {!apps.length && <span className={styles.noApps}>No apps</span>}
+      {!apps.length && <span className={styles.noApps}>No results</span>}
       <ul>
         {apps.map((app, index) => (
           <AppRow
