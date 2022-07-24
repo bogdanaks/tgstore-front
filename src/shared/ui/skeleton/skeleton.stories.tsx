@@ -33,9 +33,4 @@ SkeletonInput.args = {
   children: <Skeleton.Input />,
 }
 
-export const SkeletonAppList = Template.bind({})
-SkeletonAppList.args = {
-  children: <Skeleton.AppList />,
-}
-
 export default SkeletonStory

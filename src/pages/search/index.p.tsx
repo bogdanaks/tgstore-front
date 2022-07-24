@@ -59,14 +59,6 @@ const SearchPage = () => {
             ))}
           </>
         )}
-        {/* {!isLastPage && (
-          <Button
-            style={{ width: "100%", marginTop: 20, height: 40 }}
-            onClick={() => fetchNextPage()}
-          >
-            More
-          </Button>
-        )} */}
       </div>
       <Footer />
     </Wrapper>
