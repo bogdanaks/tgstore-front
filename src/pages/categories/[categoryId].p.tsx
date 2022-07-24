@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react"
+import React, { useMemo } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { AppList } from "entities/app/ui/app-list"
 import { useRouter } from "next/router"
@@ -60,7 +60,7 @@ const CategoryPage = () => {
       <TopBar
         title={categoryInfo.title}
         isBack={true}
-        tabs={
+        bottomContent={
           <Tabs
             activeTab={activeTab}
             onTabClick={onTabClick}
