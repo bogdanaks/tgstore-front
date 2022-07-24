@@ -7,10 +7,14 @@ import styles from "./styles.module.scss"
 interface TopBarProps {
   title: string
   isBack?: boolean
-  tabs?: JSX.Element
+  bottomContent?: JSX.Element
 }
 
-export const TopBar: FC<TopBarProps> = ({ title, tabs, isBack = true }) => {
+export const TopBar: FC<TopBarProps> = ({
+  title,
+  bottomContent,
+  isBack = true,
+}) => {
   const router = useRouter()
 
   const handleBackClick = () => {
@@ -27,7 +31,7 @@ export const TopBar: FC<TopBarProps> = ({ title, tabs, isBack = true }) => {
         )}
         <span>{title}</span>
       </div>
-      {tabs && tabs}
+      {bottomContent && bottomContent}
     </div>
   )
 }
