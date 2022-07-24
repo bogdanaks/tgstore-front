@@ -1,5 +1,5 @@
 import React from "react"
-import { SkeletonBlock } from "shared/ui/skeleton/block"
+import Skeleton from "shared/ui/skeleton"
 
 import styles from "./styles.module.scss"
 
@@ -8,16 +8,16 @@ export const SkeletonCategoryList = () => {
     <div className={styles.skeleton}>
       <ul className={styles.skeletonList}>
         <li className={styles.skeletonListItem}>
-          <SkeletonBlock />
+          <Skeleton.Block />
         </li>
         <li className={styles.skeletonListItem}>
-          <SkeletonBlock />
+          <Skeleton.Block />
         </li>
         <li className={styles.skeletonListItem}>
-          <SkeletonBlock />
+          <Skeleton.Block />
         </li>
         <li className={styles.skeletonListItem}>
-          <SkeletonBlock />
+          <Skeleton.Block />
         </li>
       </ul>
     </div>
