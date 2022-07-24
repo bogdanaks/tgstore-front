@@ -1,9 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react"
+import { IoSearchOutline } from "react-icons/io5"
 import { useQuery } from "@tanstack/react-query"
 import { AppList } from "entities/app/ui/app-list"
 import { SkeletonAppsList } from "entities/app/ui/app-list/skeleton"
 import Link from "next/link"
 import { fetcher } from "shared/lib/fetcher"
+import { Input } from "shared/ui/input"
 import { PageTitle } from "shared/ui/page-title"
 import Skeleton from "shared/ui/skeleton"
 import { Wrapper } from "shared/ui/wrapper"
@@ -49,7 +51,13 @@ const AppsPage = () => {
         <>
           <Link href="/search">
             <a className={styles.searchLink}>
-              <Search />
+              <div className={styles.wrapper}>
+                <Input
+                  style={{ height: 35 }}
+                  placeholder="Search..."
+                  leftContent={<IoSearchOutline />}
+                />
+              </div>
             </a>
           </Link>
           {recommendationCategories.data.map((categories, index) => (
