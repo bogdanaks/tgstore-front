@@ -1,3 +1,4 @@
+import { SkeletonBlock } from "./block"
 import { SkeletonButton } from "./button"
 import { SkeletonImage } from "./image"
 import { SkeletonInput } from "./input"
@@ -11,5 +12,6 @@ Skeleton.Image = SkeletonImage
 Skeleton.Button = SkeletonButton
 Skeleton.Paragraph = SkeletonParagraph
 Skeleton.Input = SkeletonInput
+Skeleton.Block = SkeletonBlock
 
 export default Skeleton
