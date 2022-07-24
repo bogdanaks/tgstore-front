@@ -1,9 +1,9 @@
-import React, { FC } from "react"
+import React, { FC, HTMLAttributes } from "react"
 
 import styles from "./styles.module.scss"
 
-interface SkeletonBlockProps {}
+interface SkeletonBlockProps extends HTMLAttributes<HTMLDivElement> {}
 
-export const SkeletonBlock: FC<SkeletonBlockProps> = () => {
-  return <div className={styles.block} />
+export const SkeletonBlock: FC<SkeletonBlockProps> = ({ ...props }) => {
+  return <div className={styles.block} {...props} />
 }
