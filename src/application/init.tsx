@@ -14,9 +14,9 @@ const InitProvider: React.FC<InitProviderProps> = ({ children }) => {
     window.Telegram.WebApp.expand()
 
     setStore(TgStore)
-  }, [])
+  }, [TgStore])
 
-  if (!store || store.data)
+  if (!store || !store.data) {
     return (
       <div
         style={{
@@ -30,6 +30,7 @@ const InitProvider: React.FC<InitProviderProps> = ({ children }) => {
         <Loader />
       </div>
     )
+  }
 
   return <>{children}</>
 }
