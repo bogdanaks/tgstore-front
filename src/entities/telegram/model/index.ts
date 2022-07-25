@@ -27,7 +27,7 @@ class TgStoreClass {
     if (!this.data?.user.id) return
     
     await AppStore.addViewer({ app_id: appId, user_id: this.data.user.id })
-    // this.webApp?.openTelegramLink(`https://t.me/${link}`)
+    this.webApp?.openTelegramLink(`https://t.me/${link}`)
   }
 }
 

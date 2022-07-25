@@ -18,6 +18,16 @@ export const TopBar: FC<TopBarProps> = ({
   const router = useRouter()
 
   const handleBackClick = () => {
+    if (router.route === "/apps/[appId]") {
+      router.replace("/apps")
+      return
+    }
+
+    if (router.route === "/categories/[categoryId]") {
+      router.replace("/categories")
+      return
+    }
+
     router.back()
   }
 

@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { AppDetail } from "entities/app/ui/app-detail"
 import { AppDetailSkeleton } from "entities/app/ui/app-detail/skeleton"
 import { Rating } from "entities/rating/ui"
 import { ReviewCardList } from "entities/review/ui/review-card-list"
+import { TgStore } from "entities/telegram/model"
 import { useRouter } from "next/router"
 import { fetcherAppById } from "shared/lib/fetcher"
 import { Wrapper } from "shared/ui/wrapper"
@@ -21,6 +22,20 @@ const AppDetailsPage = () => {
       enabled: !(appId === undefined),
     }
   )
+
+  React.useEffect(() => {
+    if (!app) return
+
+    TgStore.webApp?.MainButton.setText("Open app")
+    TgStore.webApp?.MainButton.show()
+    TgStore.webApp?.MainButton.onClick(() =>
+      TgStore.openApp(app.data.id, app.data.link)
+    )
+
+    return () => {
+      TgStore.webApp?.MainButton.hide()
+    }
+  }, [app])
 
   if (!app) {
     return (
