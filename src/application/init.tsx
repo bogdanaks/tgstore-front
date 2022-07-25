@@ -16,7 +16,20 @@ const InitProvider: React.FC<InitProviderProps> = ({ children }) => {
     setStore(TgStore)
   }, [])
 
-  if (!store || !store.data) return <Loader />
+  if (!store || store.data)
+    return (
+      <div
+        style={{
+          height: "100vh",
+          width: "100wh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Loader />
+      </div>
+    )
 
   return <>{children}</>
 }
