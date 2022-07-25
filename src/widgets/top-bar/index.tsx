@@ -19,17 +19,21 @@ export const TopBar: FC<TopBarProps> = ({
 
   const handleBackClick = () => {
     if (router.route === "/apps/[appId]") {
-      router.replace("/apps")
+      router.push("/apps")
       return
     }
 
     if (router.route === "/categories/[categoryId]") {
-      router.replace("/categories")
+      router.push("/categories")
       return
     }
 
     router.back()
   }
+
+  React.useEffect(() => {
+    console.log(router)
+  }, [])
 
   return (
     <div className={styles.topBar}>
