@@ -1,5 +1,5 @@
 import { AppStore } from "entities/app/model"
-import { makeAutoObservable, toJS } from "mobx"
+import { makeAutoObservable } from "mobx"
 import { mockUserData } from "shared/mock"
 
 class TgStoreClass {
