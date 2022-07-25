@@ -31,10 +31,6 @@ export const TopBar: FC<TopBarProps> = ({
     router.back()
   }
 
-  React.useEffect(() => {
-    console.log(router)
-  }, [])
-
   return (
     <div className={styles.topBar}>
       <div className={styles.topBarBar}>
