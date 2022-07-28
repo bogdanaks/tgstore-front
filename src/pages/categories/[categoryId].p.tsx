@@ -1,6 +1,8 @@
 import React, { useMemo } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { AppList } from "entities/app/ui/app-list"
+import { SkeletonAppsList } from "entities/app/ui/app-list/skeleton"
+import { SkeletonAppRow } from "entities/app/ui/app-row/skeleton"
 import { useRouter } from "next/router"
 import { fetcher, fetcherApps } from "shared/lib/fetcher"
 import { Wrapper } from "shared/ui/wrapper"
@@ -53,12 +55,10 @@ const CategoryPage = () => {
     ) // 1 bot id
   }, [apps]) as WebApp[]
 
-  if (!categoryInfo || !apps || !categoryId) return null
-
   return (
     <Wrapper style={{ padding: 0 }}>
       <TopBar
-        title={categoryInfo.title}
+        title={categoryInfo?.title || "Category"}
         isBack={true}
         bottomContent={
           <Tabs
@@ -69,9 +69,17 @@ const CategoryPage = () => {
         }
       />
       <div style={{ padding: "20px", paddingBottom: 0, paddingTop: 10 }}>
-        {activeTab === 0 && <AppList apps={channels} />}
-        {activeTab === 1 && <AppList apps={groups} />}
-        {activeTab === 2 && <AppList apps={bots} />}
+        {(!channels || !groups || !bots) && (
+          <ul>
+            <SkeletonAppRow />
+            <SkeletonAppRow />
+            <SkeletonAppRow />
+            <SkeletonAppRow />
+          </ul>
+        )}
+        {activeTab === 0 && channels && <AppList apps={channels} />}
+        {activeTab === 1 && groups && <AppList apps={groups} />}
+        {activeTab === 2 && bots && <AppList apps={bots} />}
       </div>
       <Footer />
     </Wrapper>

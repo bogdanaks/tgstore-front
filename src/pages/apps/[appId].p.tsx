@@ -51,7 +51,7 @@ const AppDetailsPage = () => {
 
   return (
     <Wrapper style={{ padding: "0" }}>
-      <TopBar title={app.data.title} />
+      <TopBar title={app.data.type.title} />
       <div style={{ padding: 20, paddingTop: 10 }}>
         <AppDetail app={app.data} />
         <Rating appId={String(appId)} />

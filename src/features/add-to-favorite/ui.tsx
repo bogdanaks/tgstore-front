@@ -31,13 +31,12 @@ export const Favorite: FC<FavoriteProps> = ({ app_id }) => {
   const [isFavorite, setIsFavorite] = useState(false)
 
   const handleFavoriteClick = async () => {
+    setIsFavorite((prevState) => !prevState)
     if (!isFavorite) {
       await addToFavorite(app_id, TgStore.data?.user.id)
     } else {
       await delFavorite(app_id, TgStore.data?.user.id)
     }
-
-    setIsFavorite((prevState) => !prevState)
   }
 
   useEffect(() => {

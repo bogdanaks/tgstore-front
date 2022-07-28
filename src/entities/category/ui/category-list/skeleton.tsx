@@ -19,6 +19,21 @@ export const SkeletonCategoryList = () => {
         <li className={styles.skeletonListItem}>
           <Skeleton.Block />
         </li>
+        <li className={styles.skeletonListItem}>
+          <Skeleton.Block />
+        </li>
+        <li className={styles.skeletonListItem}>
+          <Skeleton.Block />
+        </li>
+        <li className={styles.skeletonListItem}>
+          <Skeleton.Block />
+        </li>
+        <li className={styles.skeletonListItem}>
+          <Skeleton.Block />
+        </li>
+        <li className={styles.skeletonListItem}>
+          <Skeleton.Block />
+        </li>
       </ul>
     </div>
   )
